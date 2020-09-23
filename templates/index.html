@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>my page</title>
+    <script src="../static/js/jquery-1.11.1.js"></script>
+</head>
+<body>
+<h1>疫情追踪</h1>
+<h3>实时报道</h3>
+<button>点我有惊喜</button>
+<script>
+    $("button").click(function () {
+        $.ajax({
+            //使用jquery框架可方便编写ajax代码，需要jquery.js文件
+            url:"/ajax", //请求地址
+            type:"post", //请求类型
+            data:{"name":"李四","score":99},
+            success:function (data) {
+                //请求成功的回调函数，data是返回的数据
+                $("h1").html("武汉感染人数: " + data)
+            },error:function () {
+                //请求失败执行
+                alert("发送ajax请求失败")
+            }
+        })
+    })
+</script>
+</body>
+</html>
